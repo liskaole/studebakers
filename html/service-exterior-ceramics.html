@@ -408,8 +408,8 @@
                             <div class="subcribe-form">
                                 <div class="blk" id="message"></div>
                                 <form method="post" action="../php/contact.php" name="contactform" id="contactform">
-                                    <input name="name" type="text" id="name"  class="inputForm2" onClick="this.select()" value="Имя" />
-                                    <input name="phone" type="text" id="phone" onClick="this.select()" value="Номер телефона" />
+                                    <input name="name" type="text" id="name" placeholder="Имя" maxlength="20" class="inputForm2"/>
+                                    <input name="phone" type="text" id="phone" placeholder="Номер телефона"/>
                                     <!--<textarea name="comments"  id="comments" onClick="this.select()" >Сообщение</textarea>-->
                                     <input type="submit" class="send_message transition" id="submit" value="Позвоните мне" />
                                 </form>
@@ -482,5 +482,10 @@
 <script type="text/javascript" src="../js/plugins.js"></script>
 <script type="text/javascript" src="../js/core.js"></script>
 <script type="text/javascript" src="../js/scripts.js"></script>
+<script type="text/javascript" src="../js/maskedInput/jquery.maskedinput.js"></script>
+<script type="text/javascript" src="../js/maskedInput/jquery.maskedinput.min.js"></script>
+<script>
+    $(function(){$("#phone").mask("8(999) 999-99-99");});
+</script>
 </body>
 </html>

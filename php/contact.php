@@ -18,8 +18,7 @@ $name     = $_POST['name'];
 $phone    = $_POST['phone'];
 //$comments = $_POST['comments'];
 
-
-if(trim($name) == '' && trim($name)!='Имя') {
+if(trim($name) == '' && trim($name) == 'Имя') {
 	echo '<div class="error_message">Введите имя.</div>';
 	exit();
 } else if(trim($phone) == '') {
@@ -58,7 +57,7 @@ $mail->Body = '<body link="white" vlink="gray"><table cellpadding="0" cellspacin
 if ($mail->Send()) {
     echo "<fieldset>";
     echo "<div id='success_page'>";
-    echo "<h3>Ваш запрос успешно отправлен.</h3>";
+    echo "<h3 style='color:green'>Ваш запрос успешно отправлен.</h3>";
     echo "<p style='margin-bottom: 15px;'>Спасибо <strong>$name</strong>, мы перезвоним вам в ближайшее время.</p>";
     echo "</div>";
     echo "</fieldset>";
