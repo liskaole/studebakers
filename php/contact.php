@@ -18,9 +18,12 @@ $name     = $_POST['name'];
 $phone    = $_POST['phone'];
 //$comments = $_POST['comments'];
 
-if(trim($name) == '' && trim($name) == 'Имя') {
-	echo '<div class="error_message">Введите имя.</div>';
-	exit();
+if(strlen($name) > 20){
+    echo '<div class="error_message">Имя не должно превышать 20 символов.</div>';
+    exit();
+} else if(trim($name) == '' && trim($name) == 'Имя'){
+    echo '<div class="error_message">Введите имя.</div>';
+    exit();
 } else if(trim($phone) == '') {
 	echo '<div class="error_message">Введите корректный номер телефона.</div>';
 	exit();
