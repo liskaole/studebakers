@@ -410,6 +410,11 @@
                                 <form method="post" action="../php/contact.php" name="contactform" id="contactform">
                                     <input name="name" type="text" id="name" placeholder="Имя" maxlength="20" class="inputForm2"/>
                                     <input name="phone" type="text" id="phone" placeholder="Номер телефона"/>
+                                    <div>
+                                        <img src="captcha.php" id="captcha_src" alt="защитный код" style="border-radius: 4px;"/>
+                                        <img src="/images/captcha-update/retweet.svg" alt="обновить картинку" title="обновить код с картинки" onclick="document.getElementById('captcha_src').src='captcha.php?' + Math.random();" style="margin: -2.6em 0.75em 0em -1.7em; width: 17px; height: 20px;"/>
+                                        <input type="text" placeholder="captcha" name="captcha" id="captcha" title="введите код с картинки" style="width: 90px;" required/>
+                                    </div>
                                     <!--<textarea name="comments"  id="comments" onClick="this.select()" >Сообщение</textarea>-->
                                     <input type="submit" class="send_message transition" id="submit" value="Позвоните мне" />
                                 </form>

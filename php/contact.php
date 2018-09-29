@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require '../phpmailer/PHPMailerAutoload.php';
 
 error_reporting(E_ALL);
@@ -16,24 +16,30 @@ if (!defined("PHP_EOL")) define("PHP_EOL", "\r\n");
 
 $name     = $_POST['name'];
 $phone    = $_POST['phone'];
+$captcha  = $_POST['captcha'];
 //$comments = $_POST['comments'];
 
 if(strlen($name) > 20){
-    echo '<div class="error_message">Имя не должно превышать 20 символов.</div>';
-    exit();
+        echo '<div class="error_message">Имя не должно превышать 20 символов.</div>';
+        exit();
 } else if(trim($name) == '' && trim($name) == 'Имя'){
-    echo '<div class="error_message">Введите имя.</div>';
-    exit();
+        echo '<div class="error_message">Введите имя.</div>';
+        exit();
 } else if(trim($phone) == '') {
 	echo '<div class="error_message">Введите корректный номер телефона.</div>';
 	exit();
 } else if(!isPhone($phone)) {
 	echo '<div class="error_message">Введите корректный номер телефона и попробуйте снова.</div>';
 	exit();
+} else if($captcha != $_SESSION['secpic']){
+    echo '<div class="error_message">Введите верное число с картинки.</div>';
+    exit();
 }
+
 $mail_from = 'studebakers@inbox.ru';
 $mail_from_password = 'dayofjoy1';
-$mail_to = 'mixanius@gmail.com';
+//$mail_to = 'mixanius@gmail.com';
+$mail_to = 'liiizzziii@mail.ru';
 
 $mail = new PHPMailer;
 $mail->isSMTP();

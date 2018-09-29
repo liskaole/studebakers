@@ -394,7 +394,7 @@ function initAlexon() {
             $.post(a, {
                 name: $("#name").val(),
                 phone: $("#phone").val(),
-                comments: $("#comments").val()
+                captcha: $("#captcha").val()
             }, function(a) {
                 document.getElementById("message").innerHTML = a;
                 $("#message").slideDown("slow");
